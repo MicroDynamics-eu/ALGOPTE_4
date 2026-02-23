@@ -15,3 +15,6 @@ jobs:
           else
             echo "✅ Secret detected"
           fi
+      - name: Parse JSON 
+        run: |
+          echo "${{ secrets.GitHubPackagesContext }}" | jq -r 'keys[]'
