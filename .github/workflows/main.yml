@@ -17,4 +17,4 @@ jobs:
           fi
       - name: Parse JSON 
         run: |
-          echo "${{ secrets.GitHubPackagesContext }}" | jq -r 'keys[]'
+          echo '${{ secrets.GitHubPackagesContext }}' | jq -r 'keys[]'
