@@ -1,1 +1,17 @@
-secrets.GitHubPackagesContext
+name: Test GitHubPackagesContext Secret
+
+on:
+  workflow_dispatch:   # lets you trigger manually from the Actions tab
+
+jobs:
+  check-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify secret presence
+        run: |
+          if [ -z "${{ secrets.GitHubPackagesContext }}" ]; then
+            echo "❌ Secret not found"
+            exit 1
+          else
+            echo "✅ Secret detected"
+          fi
